@@ -2,7 +2,6 @@ logs
 *.log
 node_modules
 .idea
-lib
 
 # Ignore non default themes
 src/themes/*
