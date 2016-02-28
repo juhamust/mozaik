@@ -51,6 +51,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "babel": "^4.3.0",
+    "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",
     "babel-eslint": "^1.0.6",
     "babel-loader": "^6.2.4",
@@ -83,6 +84,7 @@
   },
   "scripts": {
     "build": "webpack",
+    "start": "babel-node src/Mozaik",
     "eslint": "eslint ./src/*",
     "test": "mocha --opts mocha.opts ./tests/**/*.test.js"
   }
