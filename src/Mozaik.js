@@ -3,6 +3,7 @@ import path    from 'path';
 import chalk   from 'chalk';
 import Bus     from './Bus';
 import express from 'express';
+import serve   from './server';
 
 class Mozaik {
     constructor(config) {
@@ -30,8 +31,7 @@ class Mozaik {
      */
     startServer(app) {
         app = app || express();
-
-        require('./server')(this, app);
+        serve(this, app);
     }
 
     /**
