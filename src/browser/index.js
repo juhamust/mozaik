@@ -1,3 +1,4 @@
+import '../styl/mozaik.styl';
 import ComponentRegistry from './component-registry';
 import ApiConsumerMixin  from './mixins/ApiConsumerMixin';
 import ApiStore          from './stores/ApiStore';
