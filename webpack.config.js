@@ -16,9 +16,11 @@ module.exports = {
   entry: {
     mozaik: './src/browser'
   },
-  noParse: [],
+  noParse: [
+    /.*latest\.json$/
+  ],
   resolve: {
-    extensions: ["", ".webpack.js", ".web.js", ".js"]
+    extensions: ["", '.json', ".webpack.js", ".web.js", ".js"]
   },
   plugins: [
     new ExtractTextPlugin('mozaik.css', { allChunks: true }),
@@ -29,11 +31,12 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { test: /\.json$/, loader: 'json' },
       { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/,
         loader: 'babel', query: { presets: ['react', 'es2015'] }
       },
+      { test: /\.jsx?$/, include: /mozaik-ext-\w+/, loader: 'babel', query: { presets: ['react', 'es2015'] }},
       { test: /\.html$/, loader: 'raw' },
-      { test: /\.json$/, loader: 'json' },
       { test: /\.styl$/, loaders: ['style', 'css', 'postcss', 'stylus' ]},
       { test: /\.css$/, loaders: ['style', 'css', 'postcss' ]},
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
@@ -41,7 +44,6 @@ module.exports = {
        'file?hash=sha512&digest=hex&name=[hash].[ext]',
        'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
       ]},
-      { test: /\.(json)/, loader: 'json' },
       { test: /\.(ttf|eot|svg)/, loader: 'file' }
     ]
   },
