@@ -32,10 +32,9 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.json$/, loader: 'json' },
-      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/,
-        loader: 'babel', query: { presets: ['react', 'es2015'] }
-      },
-      { test: /\.jsx?$/, include: /mozaik-ext-\w+/, loader: 'babel', query: { presets: ['react', 'es2015'] }},
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel', query: { presets: ['react', 'es2015'] }},
+      { test: /\.jsx?$/, include: /mozaik-ext-\w+\/src/, loader: 'babel', query: { presets: ['react', 'es2015'] }},
+      { test: /node_modules\/mozaik-ext-(\w|-)+\/index\.js/, loader: 'mozaik-ext-loader' },
       { test: /\.html$/, loader: 'raw' },
       { test: /\.styl$/, loaders: ['style', 'css', 'postcss', 'stylus' ]},
       { test: /\.css$/, loaders: ['style', 'css', 'postcss' ]},

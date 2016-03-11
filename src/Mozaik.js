@@ -5,6 +5,8 @@ import Bus     from './Bus';
 import express from 'express';
 import serve   from './server';
 
+import '../package.json';
+
 class Mozaik {
     constructor(config) {
         this.logger = winston;
